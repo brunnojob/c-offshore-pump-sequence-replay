@@ -1,9 +1,9 @@
 {
   "schema": 1,
   "repository": "brunnojob/c-offshore-pump-sequence-replay",
-  "source_commit": "b443145a073fc3fde2838cbb18ed21c06ef90ab4",
-  "generated_at": "2026-10-10T02:36:11.569799+00:00",
-  "run_url": "https://github.com/brunnojob/c-offshore-pump-sequence-replay/actions/runs/38017553479",
+  "source_commit": "88b4b9b2093961b7cd8cd202077e7e4ff56c43f6",
+  "generated_at": "2026-10-10T02:44:15.880541+00:00",
+  "run_url": "https://github.com/brunnojob/c-offshore-pump-sequence-replay/actions/runs/38018043829",
   "inputs_sha256": {
     ".proof/scenarios.json": "8e2cff9c1ece7b80b153b0ad88231d7927252ef7400b7309d48b5cee672900a0",
     "examples/input.txt": "e0a7fe5fa2c19323988d3c0ae400cf4f7282e6e4967e775fe2af3aae64c71969"
@@ -23,7 +23,7 @@
       "exit": 0,
       "expected_exit": 0,
       "passed": true,
-      "seconds": 0.201,
+      "seconds": 1.704,
       "output": "cc -std=c17 -Wall -Wextra -Werror -pedantic -O2 src/main.c -lm -o app\n./app --self-test\nstart failure, changeover and minimum runtime tests passed\ntime=0.00 state=1 duty=1 command=10 faults=00\ntime=1.00 state=2 duty=1 command=10 faults=00\ntime=2.00 state=1 duty=2 command=01 faults=10\ntime=3.00 state=2 duty=2 command=01 faults=10\ntime=10.00 state=0 duty=1 command=00 faults=10\n",
       "output_sha256": "4e4575816de569c4852a3d2f8ac9ee5065a4c0ab8237090c63b67fae0d9b03fe"
     },
@@ -36,7 +36,7 @@
       "exit": 0,
       "expected_exit": 0,
       "passed": true,
-      "seconds": 0.051,
+      "seconds": 0.05,
       "output": "time=0.00 state=1 duty=1 command=10 faults=00\ntime=1.00 state=2 duty=1 command=10 faults=00\ntime=2.00 state=1 duty=2 command=01 faults=10\ntime=3.00 state=2 duty=2 command=01 faults=10\ntime=10.00 state=0 duty=1 command=00 faults=10\n",
       "output_sha256": "e88700773ba40b02f6a44e9f8248ad9be5a45cda42454e1620d974e128267e16"
     },
@@ -49,7 +49,7 @@
       "exit": 2,
       "expected_exit": 2,
       "passed": true,
-      "seconds": 0.051,
+      "seconds": 0.05,
       "output": "missing input\n",
       "output_sha256": "e108e9abb244623e01f96efedd4006bbb9cdf4b61840b948d6bf644ffe78bede"
     },
@@ -62,7 +62,7 @@
       "exit": 2,
       "expected_exit": 2,
       "passed": true,
-      "seconds": 0.051,
+      "seconds": 0.05,
       "output": "expected seven columns\n",
       "output_sha256": "c3652bc9dda709d4881248619a634ddc37b1304458057edd57b6ea7b650692a1"
     },
@@ -76,7 +76,7 @@
       "exit": 2,
       "expected_exit": 2,
       "passed": true,
-      "seconds": 0.051,
+      "seconds": 0.05,
       "output": "unsupported command arguments\n",
       "output_sha256": "8671e08a3718f115decd7eb1e7970691e3a2180c5a869d0e9ccd54e6d4fa8a80"
     },
@@ -89,7 +89,7 @@
       "exit": 2,
       "expected_exit": 2,
       "passed": true,
-      "seconds": 0.051,
+      "seconds": 0.05,
       "output": "input record too large\n",
       "output_sha256": "d0f1bb9ab1c99d914df3de66c3268650fd8fcb942b2d0f116490dc6c41e6f800"
     }
