@@ -18,6 +18,7 @@ static size_t fields(char *line, char **out, size_t capacity) {
     char *p = line;
     while (*p) {
         if (count == capacity) fail("too many fields");
+        if (*p == ',') fail("empty field");
         out[count++] = p;
         char *separator = strchr(p, ',');
         if (!separator) break;
@@ -44,6 +45,7 @@ static void step(Controller *c, double time, int demand, const int *running, con
 }
 static int bit(const char *s) { double x = number(s); if (x != 0 && x != 1) fail("expected boolean"); return (int)x; }
 int main(int argc, char **argv) {
+    if (argc > 1 && !(argc == 2 && !strcmp(argv[1], "--self-test"))) fail("unsupported command arguments");
     if (argc == 2 && !strcmp(argv[1], "--self-test")) {
         Controller c = {0}; int run[] = {0, 0}, trip[] = {0, 0};
         step(&c, 0, 1, run, trip, 0); assert(c.state == 1); step(&c, 3, 1, run, trip, 0); assert(c.latched[0] && !c.state);
@@ -53,6 +55,7 @@ int main(int argc, char **argv) {
     }
     Controller c = {0}; char line[512]; unsigned rows = 0;
     while (fgets(line, sizeof line, stdin)) {
+        if (strlen(line) == sizeof line - 1 && line[sizeof line - 2] != '\n') fail("input record too large");
         char *f[7]; if (fields(line, f, 7) != 7) fail("expected seven columns");
         int run[] = {bit(f[2]), bit(f[3])}, trip[] = {bit(f[4]), bit(f[5])};
         step(&c, number(f[0]), bit(f[1]), run, trip, bit(f[6]));
