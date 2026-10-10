@@ -1,0 +1,28 @@
+$ bash -e -o pipefail -c make test && ./app < examples/input.txt
+cc -std=c17 -Wall -Wextra -Werror -pedantic -O2 src/main.c -lm -o app
+./app --self-test
+start failure, changeover and minimum runtime tests passed
+time=0.00 state=1 duty=1 command=10 faults=00
+time=1.00 state=2 duty=1 command=10 faults=00
+time=2.00 state=1 duty=2 command=01 faults=10
+time=3.00 state=2 duty=2 command=01 faults=10
+time=10.00 state=0 duty=1 command=00 faults=10
+
+$ ./app
+time=0.00 state=1 duty=1 command=10 faults=00
+time=1.00 state=2 duty=1 command=10 faults=00
+time=2.00 state=1 duty=2 command=01 faults=10
+time=3.00 state=2 duty=2 command=01 faults=10
+time=10.00 state=0 duty=1 command=00 faults=10
+
+$ ./app
+missing input
+
+$ ./app
+expected seven columns
+
+$ ./app --unsupported
+unsupported command arguments
+
+$ ./app
+input record too large
