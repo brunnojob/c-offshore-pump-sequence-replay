@@ -1,5 +1,7 @@
 # c-offshore-pump-sequence-replay
 
+[View execution evidence](https://brunnojob.github.io/devstart-lab/proofs/c-offshore-pump-sequence-replay/) · [Run browser demo](https://brunnojob.github.io/devstart-lab/proofs/c-offshore-pump-sequence-replay/demo/)
+
 Replay duty/standby pump logic with start verification, trip latching and minimum run time.
 
 ```sh
